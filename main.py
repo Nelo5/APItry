@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI
 from ML import load_model
 
@@ -16,12 +17,13 @@ def startup_event():
     model = load_model()
 
 # Your FastAPI route handlers go here
-@app.get("/translate")
-def translate(lang:str,text: str, max_length = 1000):
+@app.post("/translate")
+def translate(lang:str,text: str):
     result = model(lang,text)
     return result
 
 #uvicorn.run('Fast:app',host='localhost',port = 8080,reload=False)
-
+if __name__ == "__main__":
+   uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
 # in terminal to start server
 # uvicorn Fast:app --reload
