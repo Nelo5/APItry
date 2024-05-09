@@ -24,6 +24,6 @@ def translate(lang:str,text: str):
 
 #uvicorn.run('Fast:app',host='localhost',port = 8080,reload=False)
 if __name__ == "__main__":
-   uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+   uvicorn.run("main:app", host="127.0.0.1", port=8080, reload=True)
 # in terminal to start server
 # uvicorn Fast:app --reload
